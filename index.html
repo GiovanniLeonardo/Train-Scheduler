@@ -1,24 +1,99 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset='UTF-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-    <title>Place Title Here</title>
+    <title>Train Schedule</title>
 
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.0/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <link rel="stylesheet" href="style.css"> 
 
 </head>
-<body>>
-
-<h1>This is the header</h1>
-<p>This is the paragraph.</p>
-
-
-
-</body>
+<body>
+        <div class="container">
+                
+          <!-- Jumbotron Title-->
+        <div class="jumbotron">    
+            <h1>Anytime is Train Time</h1>
+            <h3>Your Local Schedule.</h3>
+            
+        </div>
+       
+          <div class="row">
+            <div class="col-lg-12">
+     
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse1">Current Train Schedule</a>
+                  </h3>
+                </div>
+                <!-- Display train schedule-->
+                <div class="panel-body">
+                <div id="collapse1" class="panel-collapse collapse">    
+                  <table class="table table-hover" id='train-table'>    
+                    <thead>
+                      <tr>
+                        <th>Train Name</th>
+                        <th>Destination</th>
+                        <th>Frequency (min)</th>
+                        <th>Next Arrival</th>
+                        <th>Minutes Away</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+      
+              <!-- Panel for adding next train  -->
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">
+                    Add Train
+                  </h3>
+                </div>
+                <div class="panel-body">
+      
+                  <!-- DataForm -->
+                  <form>
+                    <div class="form-group">
+                      <label for="train-name-input">Train Name</label>
+                      <input type="text" class="form-control" id="train-name-input">
+                    </div>
+                    <div class="form-group">
+                      <label for="destination-input">Destination</label>
+                      <input type="text" class="form-control" id="destination-input">
+                    </div>
+                    <div class="form-group">
+                      <label for="first-train-input">First Train Time (HH:mm - military time)</label>
+                      <input type="text" class="form-control" id="first-train-input">
+                    </div>
+                    <div class="form-group">
+                      <label for="frequency-input">Frequency (min)</label>
+                      <input type="text" class="form-control" id="frequency-input">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="add-train-btn">Submit</button>
+                  </form>
+      
+                </div>
+      
+              </div>
+      
+            </div>
+      
+          </div>
+      
+        </div>
+      
+        <script src="train.js"></script>
+      
+      </body>
 </html>
